@@ -29,10 +29,7 @@ function App() {
 
     console.log(data);
   }
-  useEffect(() => {
-    fetchData()
-  }, [])
-  useEffect(() => {
+  const updateList = () => {
     if (navigation === 'foryou') {
       fetchData();
       setLabel('For You')
@@ -49,6 +46,9 @@ function App() {
       setLabel('Recently Played')
 
     }
+  }
+  useEffect(() => {
+    updateList()
   }, [navigation])
   const changeSong = (song) => {
     setCurrentSong(song);
@@ -56,13 +56,40 @@ function App() {
   const changeNavigation = (x) => {
     setNavigation(x)
   }
+
+  const PlayNext = () => {
+    // const currIndex = songData.findIndex((val) => { val.title === currentSong.title });
+    // if (currIndex === -1) setCurrentSong(songData[0])
+    if (!songData.length) return; // If the list is empty, do nothing
+
+    // Find index of current song
+    let currentIndex = songData.findIndex(song => song.title === currentSong?.title);
+
+    // If not found, start from the first song
+    if (currentIndex === -1) currentIndex = 0;
+    else currentIndex = (currentIndex + 1) % songData.length; // Move to next, loop if at the end
+
+    setCurrentSong(songData[currentIndex]); // Play the next song 
+  }
+  const PlayPrevious = () => {
+    if (!songData.length) return; // If the list is empty, do nothing
+
+    // Find index of current song
+    let currentIndex = songData.findIndex(song => song.title === currentSong?.title);
+
+    // If not found, start from the last song
+    if (currentIndex === -1) currentIndex = songData.length - 1;
+    else currentIndex = (currentIndex - 1 + songData.length) % songData.length; // Move to previous, loop if at the start
+
+    setCurrentSong(songData[currentIndex]); // Play the previous song 
+  };
   return (
     <div className="root">
       <div class="row" style={{ height: '100%' }}>
         <div class="col-3 menu"><Navigation navigation={navigation} onChange={changeNavigation} /></div>
         <div style={{ padding: '15px' }} class="col-3 song-list"><ListSong label={label} onChange={changeSong} songs={songData} currentSong={currentSong} /></div>
         <div className="col-6 mobileView">
-          <MobilePlayer song={currentSong} />
+          <MobilePlayer PlayPrevious={PlayPrevious} PlayNext={PlayNext} updateList={updateList} song={currentSong} />
         </div>
 
       </div>

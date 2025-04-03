@@ -38,7 +38,7 @@ function cleanArray(arr) {
 }
 
 
-export default function Player({ song }) {
+export default function Player({ song, updateList, PlayPrevious, PlayNext }) {
   const audioRef = useRef(null);
   const progressRef = useRef(null);
   const [volume, setVolume] = useState(1); // Default volume: 100%
@@ -65,7 +65,7 @@ export default function Player({ song }) {
     const recentlyPlayed = JSON.parse(localStorage.getItem('recent') || '[]');
     const newList = cleanArray([song, ...recentlyPlayed])
     localStorage.setItem('recent', JSON.stringify(newList));
-
+    updateList();
     const favs = JSON.parse(localStorage.getItem('favourites') || '[]');
     if (favs || favs.length > 0) {
       const result = favs.find(obj => obj.title === song.title); // Finds first valid title
@@ -122,7 +122,7 @@ export default function Player({ song }) {
       localStorage.setItem('favourites', JSON.stringify(newList))
       setIsFav(true)
     }
-
+    updateList()
   }
   const PopoverContent = (
     <Popover style={{ background: 'rgba(255,255,255,0.3)' }} >
@@ -193,10 +193,10 @@ export default function Player({ song }) {
 
 
         <div className="controls">
-          <img className='arrow-icon' width={30} height={30} src={leftIcon} alt="" />
+          <img onClick={PlayPrevious} className='arrow-icon' width={30} height={30} src={leftIcon} alt="" />
           <img onClick={togglePlay}
             className='play-icon' src={isPlaying ? pauseIcon : playIcon} alt="" />
-          <img className='arrow-icon' width={30} height={30} src={rightIcon} alt="" />
+          <img className='arrow-icon' onClick={PlayNext} width={30} height={30} src={rightIcon} alt="" />
         </div>
         <OverlayTrigger trigger="click" placement="top" overlay={Volume}>
           <div className='actions'>
