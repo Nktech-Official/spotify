@@ -169,7 +169,7 @@
 
 .progress {
     // -webkit-appearance: none; // Remove default styling
-    accent-color: white;
+    accent-color: grey;
     width: 98%;
     max-width: 500px;
     margin: 0 auto;
@@ -177,7 +177,7 @@
     cursor: pointer;
 
     &::-webkit-slider-runnable-track {
-        background: rgba(255, 255, 255, 0.08) !important;
+        background: transparent !important;
         ;
     }
 }
@@ -358,5 +358,9 @@
 
     .mobile-controls {
         display: none;
+    }
+
+    .progress {
+        accent-color: white;
     }
 }
