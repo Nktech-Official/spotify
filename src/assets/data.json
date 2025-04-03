@@ -1,0 +1,74 @@
+[
+    {
+        "title": "Starboy",
+        "thumbnail": "starboy.png",
+        "musicUrl": "Starboy.mp3",
+        "duration": "3:50",
+        "artistName": "The Weeknd",
+        "color1": "#e70732",
+        "color2": "#000000"
+    },
+    {
+        "title": "Demons",
+        "thumbnail": "dmons.png",
+        "musicUrl": "Demons.mp3",
+        "duration": "3:56",
+        "artistName": "Imagine Dragons",
+        "color1": "#602a2a",
+        "color2": "#000000"
+    },
+    {
+        "title": "Mouth of the river",
+        "thumbnail": "river.png",
+        "musicUrl": "River.mp3",
+        "duration": "3:41",
+        "artistName": "Imagine Dragons",
+        "color1": "#223e4b",
+        "color2": "#3B82F6"
+    },
+    {
+        "title": "Ghost Stories",
+        "thumbnail": "ghost.png",
+        "musicUrl": "Ghost.mp3",
+        "duration": "4:14",
+        "artistName": "Coldplay",
+        "color1": "#33425E",
+        "color2": "#000000"
+    },
+    {
+        "title": "Sparks",
+        "thumbnail": "sparks.png",
+        "musicUrl": "Sparks.mp3",
+        "duration": "3:45",
+        "artistName": "Coldplay",
+        "color1": "#a84006",
+        "color2": "#8B5CF6"
+    },
+    {
+        "title": "Viva La Vida",
+        "thumbnail": "Vivad.png",
+        "musicUrl": "vivad.mp3",
+        "duration": "4:02",
+        "artistName": "Coldplay",
+        "color1": "#201606",
+        "color2": "#000000"
+    },
+    {
+        "title": "Hymn for the weekend",
+        "thumbnail": "hymn.png",
+        "musicUrl": "hymn.mp3",
+        "duration": "4:20",
+        "artistName": "Coldplay",
+        "color1": "#b6465c",
+        "color2": "#64748B"
+    },
+    {
+        "title": "Pain",
+        "thumbnail": "pain.png",
+        "musicUrl": "pain.mp3",
+        "duration": "4:26",
+        "artistName": "Ryan Jones",
+        "color1": "#60245d",
+        "color2": "#FBBF24"
+    }
+]
