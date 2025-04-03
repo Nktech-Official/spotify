@@ -23,7 +23,10 @@ function App() {
   //mock api call
   const fetchData = async () => {
     SetSongData(data)
-    setCurrentSong(data[3])
+    if (Object.keys(currentSong).length === 0) {
+      setCurrentSong(data[3])
+    }
+
     console.log(data);
   }
   useEffect(() => {
