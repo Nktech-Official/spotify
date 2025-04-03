@@ -4,9 +4,12 @@ import data from './assets/data.json'
 import MobilePlayer from "./components/MobilePlayer"
 import ListSong from "./components/ListSong";
 import Navigation from "./components/Navigation";
+import BottomDrawer from "./components/BottomDrawer";
+import useDisablePullToRefresh from "./hooks/useDisableRefresh";
 
 function App() {
   // eslint-disable-next-line no-unused-vars
+  useDisablePullToRefresh()
   const [currentSong, setCurrentSong] = useState({});
   const [songData, SetSongData] = useState([])
   const [navigation, setNavigation] = useState('foryou')
@@ -90,10 +93,20 @@ function App() {
         <div style={{ padding: '15px' }} class="col-3 song-list"><ListSong label={label} onChange={changeSong} songs={songData} currentSong={currentSong} /></div>
         <div className="col-6 mobileView">
           <MobilePlayer PlayPrevious={PlayPrevious} PlayNext={PlayNext} updateList={updateList} song={currentSong} />
+
         </div>
 
       </div>
 
+      <BottomDrawer trigger={
+        <>
+          <p onClick={() => changeNavigation('foryou')} className={`${navigation === 'foryou' ? 'active-link' : ''}`}>For You</p>
+          <p onClick={() => changeNavigation('toptracks')} className={`${navigation === 'toptracks' ? 'active-link' : ''}`}>Top Tracks</p>
+          <p onClick={() => changeNavigation('favourites')} className={`${navigation === 'favourites' ? 'active-link' : ''}`}>Favourites</p>
+          <p onClick={() => changeNavigation('recent')} className={`${navigation === 'recent' ? 'active-link' : ''}`}>Recently Played</p>
+        </>} >
+        <ListSong label={label} onChange={changeSong} songs={songData} currentSong={currentSong} />
+      </BottomDrawer>
     </div>
   )
 }

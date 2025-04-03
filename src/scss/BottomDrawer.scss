@@ -1,0 +1,65 @@
+.drawer-container {
+    position: relative;
+}
+
+.open-btn,
+.close-btn {
+    padding: 10px 15px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.drawer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    background: linear-gradient(108.18deg, var(--primaryGradient) 2.46%, var(--secondaryGradient) 99.84%);
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+
+    &.open {
+        transform: translateY(0);
+    }
+}
+
+.drawer-content {
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    padding-right: 0;
+    display: flex;
+    text-align: center;
+    font-family: 'Basier Circle';
+    flex-direction: column;
+    gap: 30px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    color: white;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}

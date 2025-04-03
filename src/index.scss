@@ -1,4 +1,5 @@
 @import 'bootstrap/scss/bootstrap';
+@import './scss/BottomDrawer.scss';
 
 @font-face {
     font-family: 'Basier Circle';
@@ -24,6 +25,7 @@
     width: 100vw;
     overflow: hidden;
     padding: 20px;
+    position: relative;
     font-family: 'Basier Circle';
     background-size: 200% 200%;
     transition: background-size 2s ease-in-out;
@@ -116,6 +118,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+
+
+}
+
+.mobile-controls {
+    width: 100%;
+    position: absolute;
+    height: 50px;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+
+    p {
+        color: rgba(255, 255, 255, 0.5);
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+        margin: 0;
+        text-align: center;
+        align-items: center;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .active-link {
+        color: white;
+        background-color: rgba(255, 244, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
 }
 
 .thumbnail {
@@ -202,91 +239,97 @@
     height: 100%;
     gap: 30px;
 
-    .search-container {
+
+}
+
+.search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    position: relative;
+    background-color: transparent;
+
+    .search {
+
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 40px;
-        position: relative;
-        background-color: transparent;
+        height: 100%;
+        padding: 10px;
+        padding-right: 30px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1); // Semi-transparent background
+        border: 1px solid rgba(255, 255, 255, 0.12); // Light border
+        backdrop-filter: blur(10px); // Blurred background effect
+        outline: none;
+        // opacity: 0.5;
+        font-size: 18px;
+        color: #ffffff;
 
-        .search {
-
-            width: 100%;
-            height: 100%;
-            padding: 10px;
-            padding-right: 30px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1); // Semi-transparent background
-            border: 1px solid rgba(255, 255, 255, 0.12); // Light border
-            backdrop-filter: blur(10px); // Blurred background effect
-            outline: none;
-            // opacity: 0.5;
-            font-size: 18px;
-            color: #ffffff;
-
-            &::placeholder {
-                color: rgba(255, 255, 255, 0.7); // Muted white placeholder
-            }
-
-            &:focus {
-                border-color: rgba(255, 255, 255, 0.6); // Brighter border on focus
-            }
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.7); // Muted white placeholder
         }
 
-        .search-icon {
-            position: absolute;
-            right: 8px;
-            top: 8px;
-            width: 20px;
-            opacity: 0.6;
-
+        &:focus {
+            border-color: rgba(255, 255, 255, 0.6); // Brighter border on focus
         }
     }
 
-    .song-list-container {
+    .search-icon {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        width: 20px;
+        opacity: 0.6;
 
-        flex-grow: 1;
+    }
+}
+
+.song-list-container {
+
+    flex-grow: 1;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .active {
+        background: rgba(255, 255, 255, 0.08); // Semi-transparent background
+        border: 1px solid rgba(255, 255, 255, 0.08); // Light border
+        backdrop-filter: blur(10px);
+
+    }
+
+    .song-item {
+        height: 80px;
+        display: flex;
+        align-items: center;
         width: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
+        padding: 8px;
+        gap: 15px;
+        cursor: pointer;
+        border-radius: 10px;
+        justify-content: space-between;
 
-        .active {
-            background: rgba(255, 255, 255, 0.08); // Semi-transparent background
-            border: 1px solid rgba(255, 255, 255, 0.08); // Light border
-            backdrop-filter: blur(10px);
-
-        }
-
-        .song-item {
-            height: 80px;
+        .title {
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            flex-grow: 10;
             width: 100%;
-            padding: 8px;
-            gap: 15px;
-            cursor: pointer;
-            border-radius: 10px;
-            justify-content: space-between;
 
-            .title {
-                display: flex;
-                flex-direction: column;
-                flex-grow: 10;
-                width: 100%;
-
-                p {
-                    padding: 0;
-                    margin: 0;
-                    font-size: 18px;
-                }
+            p {
+                padding: 0;
+                margin: 0;
+                font-size: 18px;
             }
         }
     }
 }
 
-
+@media (min-width: 640px) {
+    .mobile-controls {
+        font-size: 25px;
+    }
+}
 
 @media (min-width: 1080px) {
     .menu {
@@ -309,54 +352,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-}
 
-.popover-container {
-    position: relative;
-    display: inline-block;
 
-    .popover-menu {
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        background: #333;
-        color: white;
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        display: none; // Hidden by default
-        z-index: 10;
-
-        &::before {
-            content: "";
-            position: absolute;
-            top: -6px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-width: 6px;
-            border-style: solid;
-            border-color: transparent transparent #333 transparent;
-        }
-
-        button {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 14px;
-            padding: 5px;
-            width: 100%;
-
-            &:hover {
-                background: rgba(255, 255, 255, 0.2);
-                border-radius: 4px;
-            }
-        }
     }
 
-    &.active .popover-menu {
-        display: block; // Show when active
+    .mobile-controls {
+        display: none;
     }
 }
