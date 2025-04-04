@@ -147,14 +147,6 @@ export default function Player({ song, updateList, PlayPrevious, PlayNext }) {
       navigator.mediaSession.metadata = null
     })
   }, [song, audioRef]);
-  const Volume = (
-    <Popover style={{ background: 'transparent', border: 'none', outlin: 'none' }} >
-      {/* <Popover.Header as="h3">Popover right</Popover.Header> */}
-      <Popover.Body style={{ background: 'transparent', width: 'fit-content' }}>
-
-      </Popover.Body>
-    </Popover >
-  );
   function toggleVolume() {
     const container = document.querySelector('.volume-container');
     container.classList.toggle('active');
@@ -187,14 +179,10 @@ export default function Player({ song, updateList, PlayPrevious, PlayNext }) {
       <div className="controls-container">
 
         <OverlayTrigger trigger="click" placement="top" overlay={PopoverContent}>
-          {/* <Button variant="success">Click me to see</Button> */}
           <div className='actions'>
             <img src={dots} alt="" />
           </div>
         </OverlayTrigger>
-
-
-
         <div className="controls">
           <img onClick={PlayPrevious} className='arrow-icon' width={30} height={30} src={leftIcon} alt="" />
           <img onClick={togglePlay}
@@ -202,17 +190,13 @@ export default function Player({ song, updateList, PlayPrevious, PlayNext }) {
           <img className='arrow-icon' onClick={PlayNext} width={30} height={30} src={rightIcon} alt="" />
         </div>
         <div class="volume-container">
-          {/* <button class="volume-toggle" >Volume</button> */}
           <div onClick={toggleVolume} className='actions'>
             <img src={audioIcon} alt="" />
           </div>
           <div class="volume-slider" id="volumeSlider">
-            {/* <input type="range" min="0" max="100" value="50" /> */}
             <input type="range" min={0} max={1} step={0.01} value={volume} onChange={(e) => { changeVolume(e.target.value) }} />
           </div>
         </div>
-
-
       </div>
     </div>
   )

@@ -25,12 +25,12 @@ const BottomDrawer = ({ children, trigger }) => {
             </div>
 
             <div className="drawer-container">
-                {/* <button className="open-btn" >Open Drawer</button> */}
-
                 <div ref={drawerRef}
                     className={`drawer ${isOpen ? "open" : ""}`} onTouchStart={handleTouchStart}
                     onTouchMove={handleTouchMove}>
-                    <div className="close-btn" onClick={() => setIsOpen(false)}> <img src={closeIcon} alt="clos" /> </div>
+                    <div className="close-btn" onClick={() => setIsOpen(false)}>
+                        <img src={closeIcon} alt="clos" />
+                    </div>
                     <div className="drawer-content ">
                         {children}
                     </div>

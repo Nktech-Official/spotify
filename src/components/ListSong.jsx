@@ -22,7 +22,6 @@ export default function ListSong({ songs, onChange, currentSong, label, }) {
         } else {
             setCurrentSongList(songs)
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [search, songs])
     return (
         <>

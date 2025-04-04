@@ -17,7 +17,6 @@ function App() {
   useEffect(() => {
     document.documentElement.style.setProperty('--primaryGradient', currentSong.color1)
     localStorage.setItem('current', JSON.stringify(currentSong))
-    // document.documentElement.style.setProperty('--secondaryGradient',currentSong.color2)
   }, [currentSong])
   //mock api call
   const fetchData = async () => {
@@ -86,8 +85,12 @@ function App() {
   return (
     <div className="root">
       <div class="row" style={{ height: '100%' }}>
-        <div class="col-3 menu"><Navigation navigation={navigation} onChange={changeNavigation} /></div>
-        <div style={{ padding: '15px' }} class="col-3 song-list"><ListSong label={label} onChange={changeSong} songs={songData} currentSong={currentSong} /></div>
+        <div class="col-3 menu">
+          <Navigation navigation={navigation} onChange={changeNavigation} />
+        </div>
+        <div style={{ padding: '15px' }} class="col-3 song-list">
+          <ListSong label={label} onChange={changeSong} songs={songData} currentSong={currentSong} />
+        </div>
         <div className="col-6 mobileView">
           <MobilePlayer PlayPrevious={PlayPrevious} PlayNext={PlayNext} updateList={updateList} song={currentSong} />
 
