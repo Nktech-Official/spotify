@@ -143,7 +143,10 @@ export default function Player({ song, updateList, PlayPrevious, PlayNext }) {
         ]
       });
     }
-  }, [song]);
+    return (() => {
+      navigator.mediaSession.metadata = null
+    })
+  }, [song, audioRef]);
   const Volume = (
     <Popover style={{ background: 'transparent', border: 'none', outlin: 'none' }} >
       {/* <Popover.Header as="h3">Popover right</Popover.Header> */}
