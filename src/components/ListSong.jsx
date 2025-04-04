@@ -49,7 +49,7 @@ export default function ListSong({ songs, onChange, currentSong, label, }) {
                                             <p>{song.title}</p>
                                             <p style={{ fontSize: '14px', opacity: 0.7 }}>{song.artistName}</p>
                                         </div>
-                                        <p >{song.duration}</p>
+                                        <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '18px', margin: 0 }}>{song.duration}</p>
                                     </div>
                                 )
                             })
