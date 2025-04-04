@@ -148,14 +148,14 @@ export default function Player({ song, updateList, PlayPrevious, PlayNext }) {
     <Popover style={{ background: 'transparent', border: 'none', outlin: 'none' }} >
       {/* <Popover.Header as="h3">Popover right</Popover.Header> */}
       <Popover.Body style={{ background: 'transparent', width: 'fit-content' }}>
-        <input type="range" min={0} max={1} step={0.01} value={volume} style={{
-          transform: 'rotate(-90deg)',
-          transformOrigin: 'center',
-          marginBottom: '40px'
-        }} onChange={(e) => { changeVolume(e.target.value) }} />
+
       </Popover.Body>
     </Popover >
   );
+  function toggleVolume() {
+    const container = document.querySelector('.volume-container');
+    container.classList.toggle('active');
+  }
   return (
     <div className=' PlayerView'>
 
@@ -198,11 +198,20 @@ export default function Player({ song, updateList, PlayPrevious, PlayNext }) {
             className='play-icon' src={isPlaying ? pauseIcon : playIcon} alt="" />
           <img className='arrow-icon' onClick={PlayNext} width={30} height={30} src={rightIcon} alt="" />
         </div>
-        <OverlayTrigger trigger="click" placement="top" overlay={Volume}>
-          <div className='actions'>
+        <div class="volume-container">
+          {/* <button class="volume-toggle" >Volume</button> */}
+          <div onClick={toggleVolume} className='actions'>
             <img src={audioIcon} alt="" />
           </div>
-        </OverlayTrigger >
+          <div class="volume-slider" id="volumeSlider">
+            {/* <input type="range" min="0" max="100" value="50" /> */}
+            <input type="range" min={0} max={1} step={0.01} value={volume} onChange={(e) => { changeVolume(e.target.value) }} />
+          </div>
+        </div>
+
+        {/* <OverlayTrigger trigger="click" placement="top" overlay={Volume}>
+
+        </OverlayTrigger > */}
 
 
       </div>

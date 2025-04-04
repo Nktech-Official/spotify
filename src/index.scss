@@ -379,3 +379,48 @@
         accent-color: white;
     }
 }
+
+.volume-container {
+    position: relative;
+    display: inline-block;
+
+    .volume-toggle {
+        padding: 0.5rem 1rem;
+        background-color: #1f2937;
+        color: #fff;
+        border: none;
+        border-radius: 0.375rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #374151;
+        }
+    }
+
+    .volume-slider {
+        display: none;
+        position: absolute;
+        bottom: 50%; // places the slider ABOVE the button with 10px gap
+        // left: 50%;
+        left: -150%;
+        // transform: translateX(-50%);
+        background-color: transparent;
+
+        input[type='range'] {
+            // appearance: none;
+            width: 120px;
+            height: 6px;
+            background: #e5e7eb;
+            border-radius: 9999px;
+            transform: rotate(-90deg);
+            transform-origin: center;
+
+        }
+    }
+
+    &.active {
+        .volume-slider {
+            display: block;
+        }
+    }
+}
