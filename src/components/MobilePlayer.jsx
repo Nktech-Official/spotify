@@ -209,10 +209,6 @@ export default function Player({ song, updateList, PlayPrevious, PlayNext }) {
           </div>
         </div>
 
-        {/* <OverlayTrigger trigger="click" placement="top" overlay={Volume}>
-
-        </OverlayTrigger > */}
-
 
       </div>
     </div>

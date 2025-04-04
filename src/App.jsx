@@ -8,24 +8,21 @@ import BottomDrawer from "./components/BottomDrawer";
 import useDisablePullToRefresh from "./hooks/useDisableRefresh";
 
 function App() {
-  // eslint-disable-next-line no-unused-vars
   useDisablePullToRefresh()
   const [currentSong, setCurrentSong] = useState({});
   const [songData, SetSongData] = useState([])
   const [navigation, setNavigation] = useState('foryou')
   const [label, setLabel] = useState('For You')
+
   useEffect(() => {
-    const bg = document.querySelector('.root');
-    bg.classList.add('transition');
-
     document.documentElement.style.setProperty('--primaryGradient', currentSong.color1)
-    setTimeout(() => bg.classList.remove('transition'), 1500);
-
+    localStorage.setItem('current', JSON.stringify(currentSong))
     // document.documentElement.style.setProperty('--secondaryGradient',currentSong.color2)
   }, [currentSong])
   //mock api call
   const fetchData = async () => {
     SetSongData(data)
+
     if (Object.keys(currentSong).length === 0) {
       setCurrentSong(data[3])
     }

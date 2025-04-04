@@ -306,6 +306,7 @@
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    padding-right: 5px;
 
     .active {
         background: rgba(255, 255, 255, 0.08); // Semi-transparent background
@@ -315,7 +316,7 @@
     }
 
     .song-item {
-        height: 80px;
+        height: 88px;
         display: flex;
         align-items: center;
         width: 100%;
@@ -423,4 +424,22 @@
             display: block;
         }
     }
+}
+
+::-webkit-scrollbar {
+    width: 6px; // Adjust scrollbar width
+    height: 6px; // For horizontal scrollbars
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; // Hides the track
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3); // Minimal styling for thumb
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
 }

@@ -70,5 +70,23 @@
         "artistName": "Ryan Jones",
         "color1": "#60245d",
         "color2": "#FBBF24"
+    },
+    {
+        "title": "Bling Bang Bang Born",
+        "thumbnail": "bling.png",
+        "musicUrl": "bling.mp3",
+        "duration": "2:52",
+        "artistName": "Creepy Nuts",
+        "color1": "#827413",
+        "color2": "#FBBF24"
+    },
+    {
+        "title": "Abyss",
+        "thumbnail": "abys.png",
+        "musicUrl": "abys.mp3",
+        "duration": "2:03",
+        "artistName": "YUNGBLUD",
+        "color1": "#827413",
+        "color2": "#FBBF24"
     }
 ]
